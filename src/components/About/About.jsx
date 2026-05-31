@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import Countdown from "../Countdown/Countdown";
 
 export default function About() {
   return (
@@ -53,13 +54,7 @@ export default function About() {
                 loading="lazy"
               />
             </div>
-            <div className="about__img">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpTzxhEYE8-Qo_NQeptGUHKFRf5fmcjEoAJg&s"
-                alt="Процесс приготовления"
-                loading="lazy"
-              />
-            </div>
+            <Countdown targetISO="2026-06-06T19:00:00+05:00" title="До Chef’s Table Night" />
           </div>
         </div>
       </div>
