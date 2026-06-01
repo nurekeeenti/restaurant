@@ -28,6 +28,15 @@ export const MENU = [
     image: "https://images.unsplash.com/photo-1540914124281-342587941389?auto=format&fit=crop&w=1400&q=80"
   },
   {
+    id: "s4",
+    category: "starters",
+    title: "Фуа-гра с бриошью и айвой",
+    description: "Конфитюр из айвы, флёр де сель, бриошь на сливочном масле.",
+    price: "6.800 ₸",
+    priceAmount: 6800,
+    image: "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?auto=format&fit=crop&w=1400&q=80"
+  },
+  {
     id: "m1",
     category: "mains",
     title: "Филе сибаса с соусом бер блан",
@@ -53,6 +62,15 @@ export const MENU = [
     price: "6.600 ₸",
     priceAmount: 6600,
     image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1400&q=80"
+  },
+  {
+    id: "m4",
+    category: "mains",
+    title: "Стейк рибай на углях",
+    description: "Соус чимичурри, печёный картофель с розмарином, микрозелень.",
+    price: "12.500 ₸",
+    priceAmount: 12500,
+    image: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1400&q=80"
   },
   {
     id: "d1",
@@ -82,6 +100,15 @@ export const MENU = [
     image: "https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=1400&q=80"
   },
   {
+    id: "d4",
+    category: "desserts",
+    title: "Крем-брюле с лавандой",
+    description: "Тонкая карамельная корочка, свежие ягоды, лавандовый сироп.",
+    price: "2.800 ₸",
+    priceAmount: 2800,
+    image: "https://images.unsplash.com/photo-1470324161839-ce2bb6fa6bc3?auto=format&fit=crop&w=1400&q=80"
+  },
+  {
     id: "dr1",
     category: "drinks",
     title: "Коктейль «Noir»",
@@ -107,6 +134,15 @@ export const MENU = [
     price: "1.300 ₸",
     priceAmount: 1300,
     image: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1400&q=80"
+  },
+  {
+    id: "dr4",
+    category: "drinks",
+    title: "Авторский лимонад «Альпийский»",
+    description: "Огурец, мята, лайм, минеральная вода, тростниковый сироп.",
+    price: "1.800 ₸",
+    priceAmount: 1800,
+    image: "https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=1400&q=80"
   }
 ];
 

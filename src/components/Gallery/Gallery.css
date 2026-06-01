@@ -46,9 +46,10 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* 4 columns: small / medium / LARGE(active) / medium */
 .gallery__stage{
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 0.7fr 0.9fr 1.6fr 0.9fr;
   gap: 0.9rem;
   align-items: stretch;
 }
@@ -68,17 +69,39 @@
   outline: none;
 }
 
-.gallerySlide--prev,
-.gallerySlide--next{
-  opacity: 0.78;
+/* prev2 — smallest, most faded */
+.gallerySlide--prev2{
+  opacity: 0.55;
+  transform: scale(0.93);
+  filter: saturate(0.8);
+}
+
+/* prev — medium fade */
+.gallerySlide--prev{
+  opacity: 0.75;
   transform: scale(0.96);
-  filter: saturate(0.96);
+  filter: saturate(0.92);
+}
+
+/* next — same as prev */
+.gallerySlide--next{
+  opacity: 0.75;
+  transform: scale(0.96);
+  filter: saturate(0.92);
+}
+
+/* active — full, slightly taller */
+.gallerySlide--active{
+  height: 20rem;
+  border-color: rgba(197, 168, 128, 0.3);
+  box-shadow: var(--shadow);
 }
 
 .gallerySlide:hover{
   transform: translateY(-0.16rem) scale(1.01);
   box-shadow: var(--shadow);
   border-color: rgba(197, 168, 128, 0.35);
+  opacity: 1;
 }
 
 .gallerySlide:focus-visible{
@@ -140,27 +163,44 @@
   transform: scale(1.1);
 }
 
+/* ── Responsive ─────────────────────────────────── */
 @media (max-width: 60rem){
+  /* Show 2 slides on tablet: active + next */
   .gallery__stage{
-    grid-template-columns: 1fr;
+    grid-template-columns: 1.6fr 1fr;
   }
 
-  .gallerySlide--prev,
-  .gallerySlide--next{
+  .gallerySlide--prev2,
+  .gallerySlide--prev{
     display: none;
   }
 
-  .gallerySlide{
+  .gallerySlide--active{
+    height: 16rem;
+  }
+
+  .gallerySlide--next{
     height: 16rem;
   }
 }
 
 @media (max-width: 36rem){
+  /* Single slide on mobile */
+  .gallery__stage{
+    grid-template-columns: 1fr;
+  }
+
+  .gallerySlide--prev2,
+  .gallerySlide--prev,
+  .gallerySlide--next{
+    display: none;
+  }
+
+  .gallerySlide--active{
+    height: 14.5rem;
+  }
+
   .gallery__card{
     padding: 0.85rem;
   }
-  .gallerySlide{
-    height: 14.5rem;
-  }
 }
-

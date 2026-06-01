@@ -61,26 +61,24 @@ export default function Gallery({ photos = DEFAULT_PHOTOS }) {
   useEffect(() => {
     if (safePhotos.length <= 1) return;
     if (typeof window === "undefined") return;
-
     const reduceMotion =
-      typeof window.matchMedia === "function" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
-
     const id = window.setInterval(() => {
-      setActive((prevActive) => clampIndex(prevActive + 1, safePhotos.length));
+      setActive((p) => clampIndex(p + 1, safePhotos.length));
     }, 4600);
-
     return () => window.clearInterval(id);
   }, [safePhotos.length]);
 
-  const prevIndex = safePhotos.length ? clampIndex(active - 1, safePhotos.length) : 0;
-  const nextIndex = safePhotos.length ? clampIndex(active + 1, safePhotos.length) : 0;
+  // 4 visible slides: prev2, prev, active, next
   const visible = safePhotos.length
     ? [
-        { pos: "prev", idx: prevIndex, photo: safePhotos[prevIndex] },
-        { pos: "active", idx: active, photo: safePhotos[active] },
-        { pos: "next", idx: nextIndex, photo: safePhotos[nextIndex] }
-      ]
+        { pos: "prev2", idx: clampIndex(active - 2, safePhotos.length) },
+        { pos: "prev",  idx: clampIndex(active - 1, safePhotos.length) },
+        { pos: "active",idx: active },
+        { pos: "next",  idx: clampIndex(active + 1, safePhotos.length) },
+      ].map((s) => ({ ...s, photo: safePhotos[s.idx] }))
     : [];
 
   return (
@@ -94,17 +92,8 @@ export default function Gallery({ photos = DEFAULT_PHOTOS }) {
           </div>
 
           <div className="gallery__controls">
-            <button className="gallery__btn" onClick={prev} aria-label="Предыдущее фото" disabled={safePhotos.length <= 1}>
-              ←
-            </button>
-            <button
-              className="gallery__btn"
-              onClick={next}
-              aria-label="Следующее фото"
-              disabled={safePhotos.length <= 1}
-            >
-              →
-            </button>
+            <button className="gallery__btn" onClick={prev} aria-label="Предыдущее фото" disabled={safePhotos.length <= 1}>←</button>
+            <button className="gallery__btn" onClick={next} aria-label="Следующее фото"  disabled={safePhotos.length <= 1}>→</button>
           </div>
         </div>
 
@@ -140,4 +129,3 @@ export default function Gallery({ photos = DEFAULT_PHOTOS }) {
     </section>
   );
 }
-
